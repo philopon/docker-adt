@@ -10,8 +10,9 @@ RUN apt-get update &&\
     tar -C /opt/ -xvf /mgltools_x86_64Linux2_1.5.6.tar.gz &&\
     rm mgltools_x86_64Linux2_1.5.6.tar.gz &&\
     cd ${MGLBASE} &&\
-    ./install.sh &&\
-    ln -s ${MGLBASE}/bin/adt ${MGLBASE}/bin/pmv ${MGLBASE}/bin/vision ${MGLBASE}/bin/cadd ${MGLBASE}/bin/pythonsh /usr/local/bin
+    ./install.sh
+
+ENV PATH=$MGLBASE/MGLToolsPckgs/AutoDockTools/Utilities24:$MGLBASE/bin:$PATH
 
 WORKDIR /mnt
 CMD adt
